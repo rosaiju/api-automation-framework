@@ -2,6 +2,6 @@
   { "query": "John",    "min_results": 1 },
   { "query": "Emily",   "min_results": 1 },
   { "query": "James",   "min_results": 1 },
-  { "query": "Sarah",   "min_results": 1 },
+  { "query": "Liam",    "min_results": 1 },
   { "query": "Michael", "min_results": 1 }
 ]
