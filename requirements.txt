@@ -1,0 +1,9 @@
+pytest==8.3.5
+pytest-html==4.1.1
+requests==2.32.3
+httpx==0.28.1
+dacite==1.9.2
+allure-pytest==2.13.5
+python-dotenv==1.0.1
+pytest-xdist==3.6.1
+faker==37.1.0
