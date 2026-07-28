@@ -67,23 +67,15 @@ jobs:
           name: allure-results-py3.12
           path: allure-results/
 
-      - name: Get Allure history
-        uses: actions/checkout@v4
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline
 
       - name: Generate Allure report
-        uses: simple-elf/allure-report-action@v1.9
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          keep_reports: 20
+        run: allure generate allure-results -o allure-report --clean
 
       - name: Publish Allure report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: allure-report
