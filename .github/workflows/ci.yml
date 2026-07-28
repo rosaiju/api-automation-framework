@@ -33,15 +33,15 @@ jobs:
       - name: Run smoke tests
         run: pytest -m smoke --alluredir=allure-results -n auto
         env:
-          BASE_URL: ${{ secrets.BASE_URL || 'https://reqres.in/api' }}
-          BREW_BASE_URL: ${{ secrets.BREW_BASE_URL || 'https://api.openbrewerydb.org/v1' }}
+          BASE_URL: https://dummyjson.com
+          BREW_BASE_URL: https://api.openbrewerydb.org/v1
 
       - name: Run full test suite
         if: success() || failure()
         run: pytest --alluredir=allure-results -n auto
         env:
-          BASE_URL: ${{ secrets.BASE_URL || 'https://reqres.in/api' }}
-          BREW_BASE_URL: ${{ secrets.BREW_BASE_URL || 'https://api.openbrewerydb.org/v1' }}
+          BASE_URL: https://dummyjson.com
+          BREW_BASE_URL: https://api.openbrewerydb.org/v1
 
       - name: Upload Allure results
         if: always()
