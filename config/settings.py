@@ -6,3 +6,7 @@ load_dotenv()
 BASE_URL = os.getenv("BASE_URL", "https://dummyjson.com")
 BREW_BASE_URL = os.getenv("BREW_BASE_URL", "https://api.openbrewerydb.org/v1")
 TIMEOUT = int(os.getenv("TIMEOUT", "10"))
+
+# DummyJSON demo credentials — publicly documented at dummyjson.com/docs/auth
+TEST_USERNAME = os.getenv("TEST_USERNAME", "emilys")
+TEST_PASSWORD = os.getenv("TEST_PASSWORD", "emilyspass")

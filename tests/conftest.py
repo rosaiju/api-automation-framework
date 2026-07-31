@@ -2,10 +2,7 @@ import pytest
 from clients.user_client import UserClient
 from clients.auth_client import AuthClient
 from clients.brewery_client import BreweryClient
-
-# DummyJSON test credentials (publicly documented)
-TEST_USERNAME = "emilys"
-TEST_PASSWORD = "emilyspass"
+from config.settings import TEST_USERNAME, TEST_PASSWORD
 
 
 @pytest.fixture(scope="session")
