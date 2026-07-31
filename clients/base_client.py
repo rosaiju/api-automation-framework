@@ -28,8 +28,10 @@ class BaseClient:
             f"{self.base_url}{endpoint}", json=payload, timeout=TIMEOUT
         )
 
-    def delete(self, endpoint: str) -> requests.Response:
-        return self.session.delete(f"{self.base_url}{endpoint}", timeout=TIMEOUT)
+    def delete(self, endpoint: str, payload: dict = None) -> requests.Response:
+        return self.session.delete(
+            f"{self.base_url}{endpoint}", json=payload, timeout=TIMEOUT
+        )
 
     def set_auth_token(self, token: str):
         self.session.headers.update({"Authorization": f"Bearer {token}"})
