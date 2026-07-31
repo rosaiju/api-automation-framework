@@ -1,5 +1,17 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Optional
+
+
+@dataclass
+class Coordinates:
+    lat: float
+    lng: float
+
+
+@dataclass
+class UserHair:
+    color: str
+    type: str
 
 
 @dataclass
@@ -10,7 +22,7 @@ class UserAddress:
     stateCode: str
     postalCode: str
     country: str
-    coordinates: dict
+    coordinates: Coordinates
 
 
 @dataclass
@@ -27,7 +39,7 @@ class UserCompany:
     department: str
     name: str
     title: str
-    address: dict
+    address: UserAddress
 
 
 @dataclass
@@ -55,17 +67,17 @@ class User:
     height: float
     weight: float
     eyeColor: str
-    hair: dict
+    hair: UserHair
     ip: str
-    address: dict
+    address: UserAddress
     macAddress: str
     university: str
-    bank: dict
-    company: dict
+    bank: UserBank
+    company: UserCompany
     ein: str
     ssn: str
     userAgent: str
-    crypto: dict
+    crypto: UserCrypto
     role: str
 
 
