@@ -21,17 +21,20 @@ def brewery_client():
 
 
 @pytest.fixture(scope="session")
-def auth_token(auth_client):
+def login_response(auth_client):
     response = auth_client.login(username=TEST_USERNAME, password=TEST_PASSWORD)
     assert response.status_code == 200, f"Login failed: {response.text}"
-    return response.json()["accessToken"]
+    return response.json()
 
 
 @pytest.fixture(scope="session")
-def refresh_token_value(auth_client):
-    response = auth_client.login(username=TEST_USERNAME, password=TEST_PASSWORD)
-    assert response.status_code == 200
-    return response.json()["refreshToken"]
+def auth_token(login_response):
+    return login_response["accessToken"]
+
+
+@pytest.fixture(scope="session")
+def refresh_token_value(login_response):
+    return login_response["refreshToken"]
 
 
 @pytest.fixture(scope="session")
